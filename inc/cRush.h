@@ -3,6 +3,7 @@
 #define cRush_H
 
 #include "error.h"
+#include "scanner.h"
 #include <string> 
 
 class cRush
@@ -12,7 +13,9 @@ class cRush
         int REPL(); 
         int RunFile(std::string filePath); 
     private:
+        void run(std::string source); 
         Error errorHandle;  
+        Scanner scanner; 
 };
 
 #endif

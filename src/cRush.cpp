@@ -4,9 +4,8 @@
 
 using namespace std;
 
-cRush::cRush()
+cRush::cRush() : errorHandle(), scanner("", errorHandle)
 {
-    errorHandle = Error(); 
 }
 
 int cRush::REPL()
@@ -15,12 +14,12 @@ int cRush::REPL()
     {
         cout << ">>>: "; 
         string userLine; 
-        cin >> userLine; 
+        getline(cin, userLine);  
 
         if (userLine == "quit()")
             break; 
-        else 
-            cout << endl; 
+        else
+            run(userLine);  
     }
 
     return 0; 
@@ -29,5 +28,18 @@ int cRush::REPL()
 int cRush::RunFile(string filePath)
 {
     cout << filePath << endl;
+    // Parse the file into a string and run 
+    // run(parsedFile); 
+    
     return 0; 
+}
+
+void cRush::run(string source)
+{
+    Scanner tempScanner = Scanner(source, errorHandle); 
+    vector<Token> tokens = tempScanner.scanTokens(); 
+
+    for(int i = 0; i < tokens.size(); i++) {
+        tokens[i].printToken(); 
+    }
 }

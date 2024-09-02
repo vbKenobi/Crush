@@ -16,6 +16,7 @@ void Error::throw_error(int line, string message)
 
 void Error::report(int line, string where, string message)
 {
+    hasError = true; 
     cout << "[line " << line << " ] Error " << where << ": " << message << endl; 
 }
 
