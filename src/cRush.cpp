@@ -1,4 +1,6 @@
 #include "../inc/cRush.h"
+#include "../syntax/tree.h"
+#include "../syntax/visitors.h"
 #include <iostream> 
 #include <string> 
 
@@ -10,6 +12,13 @@ cRush::cRush() : errorHandle(), scanner("", errorHandle)
 
 int cRush::REPL()
 {
+
+    Expr<string>* expression = new Binary<string>(new Unary<string>(new Token(MINUS, "-", "", 1), new Literal<string>("123")), new Token(STAR, "*", "", 1), new Grouping<string>(new Literal<string>("45.67"))); 
+    AstPrinter* printer = new AstPrinter(); 
+
+    printer->print(expression);
+
+    /*
     while(true)
     {
         cout << ">>>: "; 
@@ -22,7 +31,8 @@ int cRush::REPL()
             run(userLine);  
     }
 
-    return 0; 
+    return 0;
+    */ 
 }
 
 int cRush::RunFile(string filePath)
