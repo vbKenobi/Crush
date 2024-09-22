@@ -13,6 +13,7 @@ class ValueArray
         void write(Value value); 
         inline int getCount() {return count;}; 
         inline std::vector<Value> getValues() {return values;}; 
+        inline Value& operator[](size_t index) {return values[index];};
 
         ~ValueArray(); 
 

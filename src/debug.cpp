@@ -54,7 +54,7 @@ static int constantInstruction(string name, Chunk* chunk, int offset)
     uint8_t constant = chunk->getCode()[offset+1];
     
     printf("%-16s %4d '", name.c_str(), constant); 
-    printValue(chunk->getConstants().getValues()[constant]);
+    printValue(chunk->getConstants()[constant]);
     cout << "\'" << endl; 
     return offset + 2; 
 }
