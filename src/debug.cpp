@@ -20,13 +20,13 @@ int disassembleInstruction(Chunk* chunk, int offset)
 { 
     cout << setw(4) << setfill('0') << offset << " "; 
 
-    if (offset > 0 && chunk->getLines()[offset] == chunk->getLines()[offset-1])
+    if (offset > 0 && chunk->getLine(offset) == chunk->getLine(offset-1))
     {
         cout << "\t| "; 
     }
     else 
     {
-        printf("%4d ", chunk->getLines()[offset]); 
+        printf("%4d ", chunk->getLine(offset)); 
     }
 
     uint8_t instruction = chunk->getCode()[offset];

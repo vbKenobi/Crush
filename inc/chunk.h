@@ -16,10 +16,11 @@ class Chunk {
         Chunk(); 
 
         void write(uint8_t byte, int line); 
-        int addConstant(Value value); 
+        int addConstant(Value value);
+        int getLine(int index);  
         inline int getCount() {return count;}; 
         inline std::vector<uint8_t> getCode() {return code;};
-        inline std::vector<int> getLines() {return lines;};
+        // inline std::vector<int> getLines() {return lines;};
         inline ValueArray getConstants() {return constants;};
 
         ~Chunk(); 
@@ -27,7 +28,8 @@ class Chunk {
     private:
         int count;
         std::vector<uint8_t> code;
-        std::vector<int> lines; 
+        // Line number to run length
+        std::vector<std::pair<int,int>> lines; 
         ValueArray constants; 
 }; 
 

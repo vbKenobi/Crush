@@ -12,6 +12,9 @@ int main(int argc, const char* argv[])
     test->write(constant, 123);
 
     test->write(OP_RETURN, 123); 
+    test->write(OP_RETURN, 123); 
+    test->write(OP_RETURN, 245); 
+    test->write(OP_RETURN, 123); 
 
     disassembleChunk(test, "test chunk"); 
 
