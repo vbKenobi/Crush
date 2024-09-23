@@ -5,7 +5,12 @@
 #include "value.h"
 
 enum OpCode { 
-    OP_CONSTANT, 
+    OP_CONSTANT,
+    OP_ADD, 
+    OP_SUBTRACT, 
+    OP_MULTIPLY, 
+    OP_DIVIDE,
+    OP_NEGATE,  
     OP_RETURN,
 };
 
@@ -20,7 +25,7 @@ class Chunk {
         int getLine(int index);  
         inline int getCount() {return count;}; 
         inline std::vector<uint8_t> getCode() {return code;};
-        // inline std::vector<int> getLines() {return lines;};
+        inline std::vector<uint8_t>::iterator getRefCode() {return code.begin();}; 
         inline ValueArray getConstants() {return constants;};
 
         ~Chunk(); 

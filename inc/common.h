@@ -6,4 +6,6 @@
 #include <stdint.h> 
 #include <vector>
 
+#define DEBUG_TRACE_EXECUTION
+
 #endif
