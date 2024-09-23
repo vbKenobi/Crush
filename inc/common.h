@@ -5,6 +5,7 @@
 #include <stddef.h> 
 #include <stdint.h> 
 #include <vector>
+#include <string>
 
 #define DEBUG_TRACE_EXECUTION
 

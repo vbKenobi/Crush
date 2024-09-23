@@ -1,5 +1,6 @@
 #include "../inc/vm.h"
 #include "../inc/debug.h"
+#include "../inc/compiler.h"
 
 #include <iostream>
 
@@ -22,6 +23,14 @@ InterpretResult VM::interpret(Chunk* chunk)
 
     return run(); 
 }
+
+InterpretResult VM::interpret(const string source)
+{
+    Compiler compiler = Compiler(); 
+
+    return INTERPRET_OK; 
+}
+
 
 uint8_t VM::READ_BYTE()
 {

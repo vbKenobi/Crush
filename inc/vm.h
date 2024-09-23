@@ -19,6 +19,7 @@ class VM
         VM(); 
 
         InterpretResult interpret(Chunk* chunk);
+        InterpretResult interpret(const std::string source); 
 
         ~VM(); 
 
